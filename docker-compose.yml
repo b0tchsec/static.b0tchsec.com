@@ -1,0 +1,20 @@
+Nginx:
+  environment:
+    VIRTUAL_HOST: static.b0tchsec.com
+    GENERATE_SERVER_BLOCK: 'true'
+  external_links:
+  - TechnoWizardry/Piwik:piwik
+  cap_drop:
+  - ALL
+  log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
+  log_opt: {}
+  image: ajacques/static.b0tchsec.com
+  net: bridge
+  cap_add:
+  - CHOWN
+  - DAC_OVERRIDE
+  - NET_BIND_SERVICE
+  - SETGID
+  - SETUID
