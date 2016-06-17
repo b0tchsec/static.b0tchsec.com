@@ -2,6 +2,7 @@ Nginx:
   environment:
     VIRTUAL_HOST: static.b0tchsec.com
     GENERATE_SERVER_BLOCK: 'true'
+    CERT_NAME: static_b0tchsec_com
   external_links:
   - TechnoWizardry/Piwik:piwik
   cap_drop:
@@ -10,8 +11,11 @@ Nginx:
   labels:
     io.rancher.container.pull_image: always
   log_opt: {}
-  image: ajacques/static.b0tchsec.com
+  image: b0tchsec/static.b0tchsec.com
+  volumes:
+  - /home/b0tchsec/website_content:/var/www:ro
   net: bridge
+  mem_limit: 67108864
   cap_add:
   - CHOWN
   - DAC_OVERRIDE
